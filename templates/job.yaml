@@ -4,11 +4,12 @@ kind: Job
 metadata:
   name: {{ .Values.component }}-schema-loader
   labels:
-    component: { { .Values.component } }
+    component: {{ .Values.component }}
 spec:
   serviceAccountName: {{ .Values.component }}
   template:
     spec:
+      serviceAccountName: {{ .Values.component }}
       containers:
         - name: schema-loader
           image: 191164592803.dkr.ecr.us-east-1.amazonaws.com/schema-loader:2.0.1
