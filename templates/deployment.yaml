@@ -46,6 +46,7 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: 191164592803.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.component }}:{{ .Values.appversion }}
+          command: ["bash", "-x"]
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
